@@ -13,5 +13,5 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Start building Project
-      run: xcodebuild clean build -project MacApp.xcodeproj -scheme "MacApp" -sdk "macOS 10.15" -destination "platform=macOS" ONLY_ACTIVE_ARCH=NO
+      run: xcodebuild clean build -project MacApp.xcodeproj -scheme "MacApp" -sdk "macOS 10.15" -destination "platform=macOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
 
