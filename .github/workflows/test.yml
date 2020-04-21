@@ -8,10 +8,18 @@ on:
 jobs: 
 
   build: 
-    name: Build
+    name: Build MacOS App
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@master
     - name: Start building Project
       run: xcodebuild clean build -project MacApp.xcodeproj -scheme "MacApp" -sdk "macOS 10.15" -destination "platform=macOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+
+  test:
+    name: Test MacOS App
+    runs-on: macOS-latest
+    setps:
+    - uses: actions/checkout@master
+    - name: Start testing Project
+      run: xcodebuild clean test -project MacApp.xcodeproj -scheme "MacApp" -sdk "macOS 10.15" -destination "platform=macOS" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
 
