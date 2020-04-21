@@ -1,0 +1,17 @@
+name: CI
+
+on: 
+  push: 
+    branches: 
+      - master
+
+jobs: 
+
+  build: 
+    name: Build
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Start building Project
+      run: xcodebuild clean build -project MacApp.xcodeproj -scheme "MacApp" -sdk "macOS 10.15" -destination "platform=macOS" ONLY_ACTIVE_ARCH=NO
+
